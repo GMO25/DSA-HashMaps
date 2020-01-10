@@ -1,0 +1,30 @@
+if(nextVal !== undefined){
+    console.log(nextVal)
+    console.log('last procedure?')
+    this._hashTable[index] = {
+     key,
+     value: nextVal,
+     DELETED : false,
+     next: nextVal,
+    }
+}
+
+else {
+        this._hashTable[index] = {
+            key,
+            value: value,
+            DELETED : false,
+            next : this.get(key)
+           }
+    }
+   
+
+  } else { 
+         
+    this._hashTable[index] = {
+    key,
+    value,
+    DELETED: false,
+    }; 
+    
+}
