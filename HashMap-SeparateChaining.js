@@ -1,4 +1,10 @@
-const Node = require('../DSA-LinkedLists/_Node')
+
+class Node {
+    constructor(value,next,key){
+        this.value = value;
+        this.next = next;
+       }
+}
 
 class HashMapSep {
  constructor(initialCapacity=8) {
@@ -28,14 +34,14 @@ class HashMapSep {
    
     this._hashTable[index] = {
         key,
-        value: new Node(this.get(key),value),
+        value: new Node(value,this.get(key)),
         DELETED : false,    
        }
   } 
       else {
     this._hashTable[index] = {
         key,
-        value: value,
+        value: new Node(value),
         DELETED : false,
         
        }
@@ -123,15 +129,9 @@ function main (){
 hash.set("Hobbit","Bilbo")
 hash.set("Hobbit","Frodo")
 hash.set("Halfelven","Arwen")
-hash.set("Ent", "Treebeard")
-hash.set("Wizard","Gandalf")
-hash.set("Maiar","The Necromancer")
-hash.set("Maiar","Sauron")
-hash.set("Ringbearer","Gollum")
-hash.set("Ladyoflight","Galadriel")
-
-
-console.log(hash._hashTable)
+hash.set("Hobbit","Pippin")
+console.log(hash)
+console.log(hash.get("Hobbit"))
 
 }
 main()
