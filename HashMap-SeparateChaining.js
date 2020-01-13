@@ -140,12 +140,13 @@ class HashMapSep {
           DELETED:false,
       }
   } else {
-
+    let node = new _Node(value, this.get(key))
+    
         this._hashTable[index] = {
         key,
-        value: new _Node(value,this.get(key)),
+        value: node,
         DELETED:false,
-    }
+    } 
   }
 
   
@@ -232,10 +233,17 @@ hash.set("Hobbit","Bilbo")
 hash.set("Hobbit","Frodo")
 hash.set("Halfelven","Arwen")
 hash.set("Hobbit","Pippin")
-
+hash.set("Hobbit","Perry")
+hash.set("Elf","Legolas")
+hash.set("Maiar","The Necromancer")
+hash.set("Maiar","Sauron")
+hash.set("Ringbearer","Gollum")
+hash.set("Ladyoflight","Galadriel")
+hash.set("Halfelven","Arwen")
+hash.set("Ent", "Treebeard")
 //console.log(hash.get("Ent"))
 console.log(hash)
 console.log(hash.get("Hobbit"))
-
+console.log(hash._hashTable[13].next)
 }
 main()
