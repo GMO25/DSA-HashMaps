@@ -69,7 +69,7 @@ class LinkedList {
       while(tempNode.next !== null){
        tempNode = tempNode.next;
       }
-      tempNode.next = new _Node(item,null,key)
+      tempNode.next = new _Node(item,null)
      }
     }
     find(item){
@@ -118,6 +118,7 @@ class HashMapSep {
      this._deleted = 0;
      this.MAX_LOAD_RATIO = 0.5;
      this.SIZE_RATIO = 3;
+     
  }
  set(key,value){
   const loadRatio = (this.length + this._deleted + 1) / this._capacity;
@@ -127,26 +128,22 @@ class HashMapSep {
   //Find the slot where this key should be in
   let index = this._findSlot(key);
 
-  const list = new LinkedList
-  
+  let hashList = new _Node
 
   if(!this._hashTable[index]){
       this.length++;
      
-      console.log(list)
+      
       this._hashTable[index] = {
           key,
           value:value,
           DELETED:false,
       }
   } else {
-      console.log(value)
-      let List = new LinkedList
-      List.insertFirst(value)
-      List.insertLast(this.get(key))
+
         this._hashTable[index] = {
         key,
-        value: List.head,
+        value: new _Node(value,this.get(key)),
         DELETED:false,
     }
   }
